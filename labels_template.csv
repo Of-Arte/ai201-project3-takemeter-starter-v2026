@@ -1,3 +1,20 @@
 text,label,note
-Paste one post here. Keep the whole post — don't trim it to fit.,your_label_here,cold
-Another post.,your_label_here,"pre-labelled, checked"
+Idea: a community-built map of every GTA script, component and function, to make modding easier. Looking for contributors
+Hey everyone, hope you’re all doing well!
+
+With how far decompilation \[due to AI and all\] has come for games and other software, I had an idea: what if we built a detailed, organized reference for all of GTA V covering every script, every component and every function, and documented what each one does?
+
+The goal: give new and existing modders a clear starting point, so they know:
+
+* where to begin
+
+* what to edit to get the result they want
+
+* what else a change might affect
+
+Where it’s at: I started working on this solo, but let’s just say my token budget tapped out long before the game did 😅 Turns out mapping an entire GTA game is a bit much for one person and one wallet. I’ve made some progress, but not nearly as fast as I wanted. Here’s the repo:https://github.com/Goodvibes74/gta5-under-the-hood.git
+
+So I’m hoping to put together a small group to share the load. Comment or DM me if you’re interested, and let me know what you think: I have made some progress and it would be cool if others jumped on board too.,your_label_here,cold
+It has been years since I modded GTAV, and I am feeling a new playthrough, so I'd like some mod recomendations please?
+Question - Singleplayer
+I don't care about graphics mods unless they have no performance hit. Preferably I would like mods that make the world more dynamic, adds a bit of immersion to the world itself, adds online content to the single player, like the cars and guns, and also give me more stuff to do, like more heists to do or something. I don't mind if they are for Legacy or Enhanced, since I have both., checked"

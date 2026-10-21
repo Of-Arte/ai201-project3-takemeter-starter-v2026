@@ -59,38 +59,56 @@ From reading posts in the community, I noticed the following types of content:
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `troubleshooting`
 
-**Definition:**
+**Definition:** Troubleshooting posts feature a user reporting an issue (crash, error, bug) and is asking the community for help or a solution to fix it.
 
-**Example 1:**
+**Example 1:** "
 
->
-
-**Example 2:**
-
->
-
-### `label_two`
-
-**Definition:**
-
-**Example 1:**
-
->
+> This might be a long shot but I've tried literally everything I can think of to fix this for 2 days now. I've started with a clean gtaV install on the latest update build with just lspdfr installed. I purchased the thinlinesanctuary duty gear and lbv packs from his website and installed one of them into my mods folder with openIV and added it to my dlclist and it crashes my game every time, either when I load lspdfr through the rage console or load eup through the rage console and try to open the EUP menu. The dev just told me it's because the game ran out of memory but I have heapadjuster, packfile limit adjuster and game config xml installed and one small duty belt pack shouldn't cause my game to run out of memory. If anyone can help I'd be eternally grateful."
 
 **Example 2:**
 
->
+> I have a AMD RYZEN 3 3200G 4-Core 3.6GHz (4.0 GHz Turbo) APU w/ Radeon Vega 8 Graphics and GIGABYTE GeForce GTX 1050 2GB Graphics Card and I installed some little mods like (Ls life)(pull me over)(home invasion)(better chases)(stolen) no texture mods and kept everything at normal in settings. Can I get help
+
+### `recommendation_request`
+
+**Definition:** Users are asking the community for suggestions, recommendations, or advice on mod selection.
+
+**Example 1:**
+
+> Can someone pls recommend me some mods for the enhanced version of gta 5. I want the mods to be story friendly and controller friendly. Ive already got Nve and gore variety installed and it would be great if id just have to drag the mods into my onigiri folder and not make a 50gb mods folder
+
+**Example 2:**
+
+> So I'm lowkey getting bored of Online's constant need for moneh grind and I want to add a few mods to single player (legacy version) and play. So I need good mod recommendations.
+
+If it is possible, I would like to somehow play as an OC I created in singleplayer instead of Franklin, Michael or Trevor, if it makes sense
+
+### `release_showcase`
+
+**Definition:** Users are sharing their own mods or tools with the community, sharing images, videos, or links to download the mod.
+
+**Example 1:**
+
+> Newly released alternative to FivePD with a focus on realism, for FiveM server owners: https://forum.cfx.re/t/police-simulator-v-policing-gamemode/5230989/5
+
+**Example 2:**
+
+> Just wanted to share with you guys that I just released a giveaway of both Basic and VIP licenses in a video showcase by Angelito.
+
+Check it out if you wanna join the giveaway or if you want to watch a full Disturbed showcase
+🔥 Watch video: https://youtu.be/x4uBmYGt2_I
+
+Useful information to those who're still looking for Luna alternatives with a limited budget.
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** troubleshooting vs. recommendation_request
 
 **The decision rule I used every time:**
 
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
+Posts like "My game stutters during explosions, what mod can I download to boost FPS?" or "Cops are too predictable, is there a mod that fixes their combat AI?"
 
 ---
 
