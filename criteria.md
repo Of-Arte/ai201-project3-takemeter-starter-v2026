@@ -6,14 +6,14 @@ unit 5 **before** anything was trained.
 **All five are yours this time.** None are given. You've had two projects of
 practice.
 
-An acceptance criterion names a number. *"The model is accurate"* is an
-opinion. *"Every label has an F1 of at least 0.60 on the held-out set"* is a
+An acceptance criterion names a number. _"The model is accurate"_ is an
+opinion. _"Every label has an F1 of at least 0.60 on the held-out set"_ is a
 criterion.
 
 Under each, write a sentence or two on **why that number**. A reason that says
-something about your data or your taxonomy earns credit — *"I picked 0.60 F1
+something about your data or your taxonomy earns credit — _"I picked 0.60 F1
 for `reaction` because it's my smallest label and I only have about 50
-examples of it"*. A reason that could be attached to any project does not.
+examples of it"_. A reason that could be attached to any project does not.
 
 > Missing your own targets next unit costs you nothing. Setting a target so
 > easy you can't miss it does.
@@ -30,13 +30,13 @@ somewhere you'd honestly call useful.
 form to fill in — a criterion that fits none of them is fine if it names a
 number.
 
-| Area | A question it could answer |
-|---|---|
-| Overall accuracy | How often does it need to be right to be worth using? |
-| Per-label performance | Is one label allowed to be much worse than the others? |
-| Balance | How lopsided can your label counts get before it's a problem? |
-| Consistency | If someone else labelled the same posts, how often should you agree? |
-| Confidence | Should a confident prediction be right more often than an unsure one? |
+| Area                  | A question it could answer                                            |
+| --------------------- | --------------------------------------------------------------------- |
+| Overall accuracy      | How often does it need to be right to be worth using?                 |
+| Per-label performance | Is one label allowed to be much worse than the others?                |
+| Balance               | How lopsided can your label counts get before it's a problem?         |
+| Consistency           | If someone else labelled the same posts, how often should you agree?  |
+| Confidence            | Should a confident prediction be right more often than an unsure one? |
 
 Two things worth knowing before you pick numbers, because both will affect
 whether you hit them:
@@ -53,61 +53,41 @@ whether you hit them:
 
 ## 1.
 
-<!-- Your criterion. It must name a number. -->
+The model achieves an overall accuracy of at least 0.78 across all evaluation seeds.
 
-
-
-**Why this target:**
-
-
+**Why this target:** 0.78 represents a meaningful operational filter where roughly 4 out of 5 posts are routed correctly while allowing some tolerance for borderline or ambiguous posts.
 
 ---
 
 ## 2.
 
-<!-- Your criterion. -->
+The F1 score for the troubleshooting class is at least 0.80 across all evaluation seeds.
 
-
-
-**Why this target:**
-
-
+**Why this target:** Troubleshooting is the most critical label for the system, as incorrect routing can impact user experience. Setting a high F1 score will ensure the model can reliably identify these posts.
 
 ---
 
 ## 3.
 
-<!-- Your criterion. -->
+The F1 score for the recommendation_request class is at least 0.72 across all evaluation seeds.
 
-
-
-**Why this target:**
-
-
+**Why this target:** Recommendation requests often have more varied phrasing ("immersion", "visuals", or specific gameplay mechanics) and fewer hard technical keywords. 0.72 helps to reduce random guessing.
 
 ---
 
 ## 4.
 
-<!-- Your criterion. -->
+Neither label represents more than 65% of the total labeled dataset.
 
-
-
-**Why this target:**
-
-
+**Why this target:** This prevents the model from being overly biased towards a specific label and encourages it to learn to identify both classes effectively.
 
 ---
 
 ## 5.
 
-<!-- Your criterion. -->
+For predictions made with confidence greater than or equal to 0.85, prediction accuracy must be at least 0.88.
 
-
-
-**Why this target:**
-
-
+**Why this target:** Users need to trust high confidence classifications, and this target will help ensure that when the model is confident, it is correct most of the time.
 
 ---
 
