@@ -26,3 +26,8 @@ torch>=2.2,<3.0
 
 # Scoring the baseline
 scikit-learn>=1.3,<2.0
+
+# Lets VS Code run takemeter.ipynb on this virtual environment. Without it the
+# kernel picker cannot offer .venv and the notebook falls back to the system
+# Python, which has none of the packages above.
+ipykernel>=6.29,<8.0

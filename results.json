@@ -1,0 +1,54 @@
+{
+  "seed": 42,
+  "n_test": 30,
+  "accuracy": 0.7333333333333333,
+  "f1_macro": 0.5398550724637681,
+  "per_label": {
+    "troubleshooting": {
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1": 0.75,
+      "support": 12
+    },
+    "recommendation_request": {
+      "precision": 1.0,
+      "recall": 0.7692307692307693,
+      "f1": 0.8695652173913043,
+      "support": 13
+    },
+    "release_showcase": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 5
+    }
+  },
+  "confusion": {
+    "troubleshooting": {
+      "troubleshooting": 12,
+      "recommendation_request": 0,
+      "release_showcase": 0
+    },
+    "recommendation_request": {
+      "troubleshooting": 3,
+      "recommendation_request": 10,
+      "release_showcase": 0
+    },
+    "release_showcase": {
+      "troubleshooting": 5,
+      "recommendation_request": 0,
+      "release_showcase": 0
+    }
+  },
+  "confidence": {
+    "mean_when_right": 0.5113474130630493,
+    "mean_when_wrong": 0.5113106966018677,
+    "accuracy_most_confident_third": 0.8,
+    "accuracy_least_confident_third": 0.8,
+    "n_per_third": 10
+  },
+  "device": "mps",
+  "device_name": "Apple Silicon GPU (MPS)",
+  "torch_version": "2.14.1",
+  "max_length": 128
+}
