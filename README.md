@@ -119,7 +119,7 @@ Ask what the poster wants as the _answer_. If the answer they want is a fix for 
 
 **Where the posts came from:** r/gta5modding, a public subreddit, 2020 to October 2026. I first tried r/GTA5mods, but every route I tried returned only the same 11 posts, so I switched. I collected posts through Reddit's public RSS feeds: 8 pages of `/new` (800 posts). I dropped removed and deleted posts and posts with almost no text, then chose 200 by reading them.
 
-**How I labelled them:** Claude pre-labelled 180 posts against my three definitions in `label_definitions.txt`. I double checked them, and labelled the 20 rows left blank in the note column.
+**How I labelled them:** Claude pre-labelled 180 posts against my three definitions in `label_definitions.txt`. I double checked them, and labelled the remaining 20 rows in the note column.
 
 **Counts per label:**
 
@@ -160,17 +160,13 @@ Ask what the poster wants as the _answer_. If the answer they want is a fix for 
 
 ## The Training Run
 
-<!-- Your starting model, your settings, and anything you changed and why. -->
+**Base model:** `distilbert-base-uncased`, fine-tuned for 3-way classification (`troubleshooting`, `recommendation_request`, `release_showcase`).
 
-**Base model:**
+**Settings:** 3 epochs, learning rate 2e-5, batch size 16, 128 tokens per post, seed 42. Trained on Apple Silicon GPU (`mps`), torch 2.14.1, Python 3.12.12.
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Anything I changed from the defaults, and why:** Every setting is the notebook's default.
 
-**Anything I changed from the defaults, and why:**
-
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
+**Split sizes:** 70/15/15
 
 ---
 
