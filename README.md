@@ -39,7 +39,7 @@
 
 ## What This Does
 
-This project trains TakeMeter to classify user posts from the **r/GTA5mods** subreddit community. r/GTA5mods is a public forum where Grand Theft Auto V players, modders, and tool developers interact.
+This project trains TakeMeter to classify user posts from the **r/gta5modding** subreddit community. r/gta5modding is a public forum where Grand Theft Auto V players, modders, and tool developers interact.
 
 ### Candidate Distinctions Observed
 
@@ -108,7 +108,7 @@ Useful information to those who're still looking for Luna alternatives with a li
 
 **The decision rule I used every time:**
 
-Posts like "My game stutters during explosions, what mod can I download to boost FPS?" or "Cops are too predictable, is there a mod that fixes their combat AI?"
+Ask what the poster wants as the _answer_. If the answer they want is a fix for something that is currently broken it is `troubleshooting`. If the answer they want is the name of a mod, menu, or script, it is `recommendation_request`. When a post asks for both, the question in the title or the final sentence decides.
 
 ---
 
@@ -117,48 +117,44 @@ Posts like "My game stutters during explosions, what mod can I download to boost
 <!-- Where you collected from, how you labelled, your counts, and three hard
      cases. -->
 
-**Where the posts came from:**
+**Where the posts came from:** r/gta5modding, a public subreddit, 2020 to October 2026. I first tried r/GTA5mods, but every route I tried returned only the same 11 posts, so I switched. I collected posts through Reddit's public RSS feeds: 8 pages of `/new` (800 posts). I dropped removed and deleted posts and posts with almost no text, then chose 200 by reading them.
 
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+**How I labelled them:** Claude pre-labelled 180 posts against my three definitions in `label_definitions.txt`. I double checked them, and labelled the 20 rows left blank in the note column.
 
 **Counts per label:**
 
-| Label     | Count | Share |
-| --------- | ----- | ----- |
-|           |       |       |
-|           |       |       |
-|           |       |       |
-| **Total** |       | 100%  |
+| Label                    | Count | Share |
+| ------------------------ | ----- | ----- |
+| `troubleshooting`        | 84    | 42%   |
+| `recommendation_request` | 84    | 42%   |
+| `release_showcase`       | 32    | 16%   |
+| **Total**                | 200   | 100%  |
 
 **Three hard cases**
 
-<!-- Any post that made you pause: what it was, which two labels it could have
-     been, and what you chose. These are worth more than the easy 190. -->
-
 **1.**
 
-> _The post:_
+> _The post:_ "How to get OpenIV mods to work with NV Enhanced/Onigiri?" The poster has installed scripts and Menyoo, but nothing that goes through OpenIV works, and asks for "a comprehensive and working guide".
 >
-> _Could have been:_
+> _Could have been:_ `troubleshooting` or `recommendation_request`.
 >
-> _I chose, because:_
+> _I chose `troubleshooting`, because:_ mods are installed and not working, which is something broken. It asks for a guide, so by my rule it is a fix request.
 
 **2.**
 
-> _The post:_
+> _The post:_ "Running GTA 5 with DirectX 12". It shares a link to a wrapper and says it should not be bannable and works online.
 >
-> _Could have been:_
+> _Could have been:_ `release_showcase` or `recommendation_request`.
 >
-> _I chose, because:_
+> _I chose `release_showcase`, because:_ the poster is sharing a pre-existing tool with the community and asks nothing.
 
 **3.**
 
-> _The post:_
+> _The post:_ "Do I need to reinstall all my mods and scripts from scratch?" After a game update, the game crashes on the loading screen with no error message, and the poster asks whether to reinstall mods or the whole game.
 >
-> _Could have been:_
+> _Could have been:_ `troubleshooting` or `recommendation_request` (it asks for advice).
 >
-> _I chose, because:_
+> _I chose `troubleshooting`, because:_ something is currently broken, and the advice asked for is a fix.
 
 ---
 
@@ -189,17 +185,17 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- _What I asked for:_
-- _What came back:_
-- _What I changed:_
+- _What I asked for:_ A way to pull real posts from r/GTA5mods after a previous attempt failed with 403 and 429 errors.
+- _What came back:_ Claude tried the public JSON and RSS feeds, an archive mirror, and the official listing API through a Devvit app, and showed that every route returned the same 11 posts.
+- _What I changed:_ I told it to try r/gta5modding, which returned hundreds of posts.
 
 **Moment 2**
 
-- _What I asked for:_
-- _What came back:_
-- _What I changed:_
+- _What I asked for:_ Collect and store 200 posts, then label 180 of them, leaving 20 `cold` rows.
+- _What came back:_ A `labels.csv` of 200 rows.
+- _What I changed:_ I labeled the 20 cold rows based on my decision rules. <!-- Update this line after you review the labels, e.g. how many you corrected. -->
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** Claude pre-labelled 180 rows. Rows are marked `ai_prelabeled` or `cold` in the note column. <!-- Edit this once you have reviewed the labels: say how many you read and how many you changed. -->
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
