@@ -232,24 +232,33 @@ The baseline outperformed the trained model overall. It performed better on 2 of
 <!-- Five criteria across three seeds. The notebook's section 6 prints the
      spread table; the Target and Verdict columns are yours. -->
 
-| Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
-| --------- | ------ | ------- | ------ | --------- | ------- |
-| 1.        |        |         |        |           |         |
-| 2.        |        |         |        |           |         |
-| 3.        |        |         |        |           |         |
-| 4.        |        |         |        |           |         |
-| 5.        |        |         |        |           |         |
+| Criterion                        | Target                  | Seed 42 | Seed 7 | Seed 2024 | Verdict |
+| -------------------------------- | ----------------------- | ------- | ------ | --------- | ------- |
+| 1. Overall accuracy              | ≥ 0.78 across all seeds | 0.733   | 0.567  | 0.700     | MISSED  |
+| 2. F1 — `troubleshooting`        | ≥ 0.80 across all seeds | 0.750   | 0.643  | 0.815     | MISSED  |
+| 3. F1 — `recommendation_request` | ≥ 0.72 across all seeds | 0.870   | 0.593  | 0.714     | MISSED  |
+| 4. Dataset class balance         | No class > 65%          | 42.0%   | 42.0%  | 42.0%     | MET     |
+| 5. High-confidence accuracy      | ≥ 0.88 when conf ≥ 0.85 | 0.800   | 1.000  | 1.000     | MISSED  |
+
+Accuracy swung 0.167 across seeds, dropping to 0.567 on seed 7. It is clear that the dataset is too small and lopsided (lack of release_showcase examples) to properly train the model.
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |     |     |     |
-| ---------------- | --- | --- | --- |
-| \*\*\*\*         |     |     |     |
-| \*\*\*\*         |     |     |     |
-| \*\*\*\*         |     |     |     |
+| true \ predicted           | troubleshooting | recommendation_request | release_showcase |
+| -------------------------- | --------------- | ---------------------- | ---------------- |
+| **troubleshooting**        | 12              | 0                      | 0                |
+| **recommendation_request** | 3               | 10                     | 0                |
+| **release_showcase**       | 5               | 0                      | 0                |
+
+Biggest confusion: 5 real `release_showcase` posts called `troubleshooting`.
+The other direction: 0 real `troubleshooting` posts called `release_showcase`.
+
+That's lopsided — the model leans toward `troubleshooting` on this pair.
+A direction like that usually points at your labelling rather than the
+model. Your agreement report is the thing that can tell you which.
 
 **My biggest off-diagonal number, and what it means:**
 
