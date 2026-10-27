@@ -1,0 +1,184 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 30,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": true,
+  "scores": {
+    "n": 30,
+    "accuracy": 0.8333333333333334,
+    "f1_macro": 0.8631636562671045,
+    "per_label": {
+      "recommendation_request": {
+        "precision": 1.0,
+        "recall": 0.6153846153846154,
+        "f1": 0.761904761904762,
+        "support": 13
+      },
+      "release_showcase": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 5
+      },
+      "troubleshooting": {
+        "precision": 0.7058823529411765,
+        "recall": 1.0,
+        "f1": 0.8275862068965517,
+        "support": 12
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "any good menus??\n\nHey everyone. I wanted to get a good menu i can play in public lobbies without any worries. I dont mind if it is paid I just want a good and safe one and never really was in GTA mod business until now. Anyone got any good recs?",
+      "gold": "recommendation_request",
+      "predicted": "recommendation_request"
+    },
+    {
+      "text": "LSPDFR mods/ FivePD Discord Server\n\nhttps://discord.gg/7U2TQSjPaV (If this isn't allowed delete it) Here i release stuff i've made for LSPDFR including, Callouts, Vehicles, Eup's, and a variety of other stuff i havent released on LPSDFR's website. We also take request. We are currently in the works of making a FivePD server too!",
+      "gold": "release_showcase",
+      "predicted": "release_showcase"
+    },
+    {
+      "text": "2024 What mod menu is better?\n\nHello people, I had questions about what mod menu is better because the Midnight mod menu does not do its thing anymore and started falling apart, so I just figured that i needed something new and found out about Stand and 2Take1.\n\n I watched a lot of YouTube videos about which mod menu is better, but rather than letting me decide easily, it made it a lot harder to decide. \n\n Please let me know what positive and negative experiences you had using any of these mod menus. \n\n \u200b",
+      "gold": "recommendation_request",
+      "predicted": "recommendation_request"
+    },
+    {
+      "text": "Added cars not showing up\n\nPretty sure I\u2019ve done it correctly\u2026. Added it to mods folder, copped the line to dlc list, the cars just aren\u2019t showing up. 8 of them are. But the other 6 just will not pop up. I\u2019ve made a new save, I\u2019ve added a new game config, oh, it plays fine lol but when I go to load an old old save. Crashes. Start a new game ? Crashes lmao. \n\n I have over 6000 of ram ready to use, I\u2019m only currently using 2000, I even turned down the graphics settings from very high to just high. So I don\u2019t get it. Why does every other car pop up lol. I thought it was just gun mods that had issues\u2026. Now it\u2019s cars lmao? This game is the devil",
+      "gold": "troubleshooting",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "Any idea how to play with mods after Kortz Heist update? (Enhanced)\n\nEver since the last update my game will crash if I try to run it with mods installed (the only mods I really have are script hook V and Menyoo). I\u2019ve installed the updated version of the mods but they still crash the game. Does anyone have a fix for this yet?",
+      "gold": "troubleshooting",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "Any script that has similar features to jinx?\n\nI heard jinx is getting deleted and thats sad because it makes cherax so much better\n\n will there be a script that will add most of its features? Thanks",
+      "gold": "recommendation_request",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "heist editor 3.6 set up\n\nso i installed this heist editor off of unreal cheats however i cannot unzip the file due to \"not having the permissions\" the mod itself is \"[Release] Heist Editor v3.6 [External]\" what do i do and how can i set it up?",
+      "gold": "troubleshooting",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "Can't launch game bcs of ENB\n\nHello guys,so when i try to launch GTA V my game is crashing with error and in my GTA V folder i am getting ENB files,i try everything ,delete files, reinstsall the game, nothing helps how can i fix that problem ? any solution please bcs i am tired cna't do anything to play the game",
+      "gold": "troubleshooting",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "I need to mod my gta 5 enhanced but the script hook is out dated\n\nI launch the game with script hook = crashes \n\n I launch my game without script hook = fine \n\n What to do ?",
+      "gold": "troubleshooting",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "OpenIV.asi error\n\ni installed gta today after a while and i installed all base mods like two scripthook, heap adj ecc..., and my game keep crashin after 3-5 minutes of playtime. I had a little talk with claude ai analysing the logs and the error is that open iv asi isnt compatible with the current gta version: OpenIV.asi\u274c Not yet compatible with 1.0.3788.0 \n\n anyone had the same issue or knows how to fix this?",
+      "gold": "troubleshooting",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "No cost mod menu for online?\n\nIs there any usable and 0$ mod menu for online, i mostly want gta$.\n\n Thankd",
+      "gold": "recommendation_request",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "Mod menus\n\nI got the ambani mod menu for fivem but I\u2019m looking for more I\u2019ve seen shadow menu woah v3 but idk if those are viruses can anyone recommend me trusted menus that I can get and where I can get them thanks would be fire",
+      "gold": "recommendation_request",
+      "predicted": "recommendation_request"
+    },
+    {
+      "text": "Unable to Launch Error when launching with fsl v5 Legacy\n\nSo I installed Fsl v5 which is latest version for the legacy gta but when i try to launch it gives me error unable to start?\n\n I have Battleye disabled and followed all instructions mentioned in website author of fsl so what is wrong?\n\n I got Gta on Epic games.",
+      "gold": "troubleshooting",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "Good Gta Legacy Offline mod menus?\n\nAre There any good mod menus that are for offline play and dont any have viruses",
+      "gold": "recommendation_request",
+      "predicted": "recommendation_request"
+    },
+    {
+      "text": "Which version of cherax should I get?\n\nJust thinking which one should I get and are there major differences?",
+      "gold": "recommendation_request",
+      "predicted": "recommendation_request"
+    },
+    {
+      "text": "Mods sometimes not showing up\n\nI\u2019m helping a friends son get some mods in gta v. We have openiv and I copied all the files from the weapons into the correct folder. When opening The game sometimes it\u2019s there and sometimes it\u2019s not. what have I done wrong? He sees 21 pistols and I was assuming it would add to that list.",
+      "gold": "troubleshooting",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "YimmenuV2 Is Updated on Official Source\n\nFor those wanting the update safetly and securely, Yimmenu has been updated by the official source on Github 4 hours ago. just to let everyone know as some may still be waiting.\n\n YimmenuV2",
+      "gold": "release_showcase",
+      "predicted": "release_showcase"
+    },
+    {
+      "text": "Texture glitching (black/purple squares) leading to ERR_GFX_STATE after recent GTA V Enhanced Update\n\nHi everyone, \n\n I\u2019m running into a frustrating issue with GTA V PC after the recent Enhanced update, and I really hope someone here has a fix. \n\n The Problem:\n\n Ever since the update, I've been getting these strange, random black and purple pixelated box artifacts appearing on buildings (like Ponsonbys, as seen in my attached clip) and even on some NPC models. The squares pop up and flicker randomly. After a few moments of this texture glitching, the game completely freezes and crashes to the desktop with the notorious error: \n\n \"ERR_GFX_STATE: Game error. Please reboot and restart the game.\"\n\n Important Notes:\n\n This started happening only after the new GTA V Enhanced update.\n\n I am running mods, but I have already updated ScriptHookV to the absolute latest version compatible with this build. \n\n What I've tried so far (with no luck):\n\n  * Deleted all `sga_` cache files from the Rockstar Games/GTA V Documents folder.\n\n * Deleted `settings.xml` to reset the graphics settings. (After doing this, the purple boxes disappeared, and now they only show up as black boxes, but the game still crashes with the exact same ERR_GFX_STATE error).\n\n  Has anyone else experienced this specific texture artifacting after the update? Is there a known conflict with the new update, or is my GPU just throwing a tantrum? Any help or workarounds would be highly appreciated!\n\n https://reddit.com/link/1uwvch9/video/yp5lmvgtkbdh1/player",
+      "gold": "troubleshooting",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "Which mod menu do you guys recommend for GTA V Online Enhanced?\n\nmod menu to complete heists and making easier to make more $$",
+      "gold": "recommendation_request",
+      "predicted": "recommendation_request"
+    },
+    {
+      "text": "Impulse has been updated!\n\nA new Update has been FINALLY released. Its not that many new Features but better than nothing.\n\n EDIT: The Money Options are back too.",
+      "gold": "release_showcase",
+      "predicted": "release_showcase"
+    },
+    {
+      "text": "Need help with crashing\n\nThis might be a long shot but I've tried literally everything I can think of to fix this for 2 days now. I've started with a clean gtaV install on the latest update build with just lspdfr installed. I purchased the thinlinesanctuary duty gear and lbv packs from his website and installed one of them into my mods folder with openIV and added it to my dlclist and it crashes my game every time, either when I load lspdfr through the rage console or load eup through the rage console and try to open the EUP menu. The dev just told me it's because the game ran out of memory but I have heapadjuster, packfile limit adjuster and game config xml installed and one small duty belt pack shouldn't cause my game to run out of memory. If anyone can help I'd be eternally grateful.",
+      "gold": "troubleshooting",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "Suggestions for compatible mods (GTA 5 Enhanced)\n\nHey guys, I just got a new PC and wanted to make my experience in GTA 5 as photorealistic as possible.\n I downloaded GTA 5 Enhanced edition and applied the NaturalVision Enhanced mod. However, I read that modding for the GTA 5 Enhanced is more or less still in its early stages. I like the results that I have atm but was wondering whether you have suggestions for further compatible mods.\n\n Or should I simply delete Enhanced, go for Legacy and all the released mods for it historically so far and basically have a larger pool to choose from? Or you don't think that's necessary and I could simply stick with what I have atm and add a few more good mods to improve my visual experience further?",
+      "gold": "recommendation_request",
+      "predicted": "recommendation_request"
+    },
+    {
+      "text": "NVE [LEGACY] Error Help\n\nI tried to start a new game with NVE and every time I try to start or I finish the Repossession mission (because thats my current save) it crashes, it only gives me an error when I start a new game (attached image) but I have both the latest NVE and the latest GTA\n\n https://preview.redd.it/hp3xv1cj9ufh1.png?width=457&format=png&auto=webp&s=3021420b5f7d9f67cc293d12de1ec5b6763752ff",
+      "gold": "troubleshooting",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "ModWorks - the new OpenIV\n\nModWorks is a desktop utility built to simplify the GTA V modding workflow.\n\n What it does\n ModWorks helps you work with common GTA V mod files and assets in one place. You can browse RPF archives more easily, work with textures, preview supported assets, manage archive contents, and use built-in utilities designed to speed up everyday modding tasks.\n\n Features\n - Browse RPF archives like normal folders\n - Preview models, textures, and AWC audio\n - Replace and export textures quickly\n - Batch swap texture dictionaries\n - Export textures to PNG or DDS\n - Vehicle modding utilities\n - Handling editing tools\n - YTD optimization tools\n - Built-in utilities such as cache clearing, KVP backups, crash analysis, and hash lookup\n\n Video Preview\n Watch the ModWorks showcase\n\n Important note\n ModWorks is in its first public release. Some features may still have minor bugs or edge cases, but frequent updates and community feedback will continue to shape and improve the app. If you have suggestions or bug reports please let us know via our Discord (Link found below).\n\n Installation\n\n  * Download and install ModWorks from https://modworks.dev/download * Launch the app * Point it to your GTA V directory if needed * Open supported archives or assets and begin editing  Known issues\n - First public release, so some workflows may still be improving\n - Some features may have edge cases depending on file type or setup\n\n Check us out\n Website: https://modworks.dev/\n Discord: https://discord.gg/cXCBwYsyAr\n GTA 5Mods Post: https://www.gta5-mods.com/tools/modworks-gta-v-modding-utility",
+      "gold": "release_showcase",
+      "predicted": "release_showcase"
+    },
+    {
+      "text": "Vehicle Reward Script for YimMenu / NewWay Menu\n\n**[Release] Vehicle Reward Script for YimMenu / NewWay Menu**\n\n ---\n\n Hey everyone, dropping a Lua script that lets you claim any vehicle you're currently driving as your Personal Vehicle\n\n ---\n\n **What it does**\n\n Hooks directly into GTA Online's internal `am_mp_vehicle_reward` script and replicates the native vehicle reward flow. Runs a per-frame loop until the save is confirmed.\n\n ---\n\n **How to use**\n\n  * Get in any vehicle\n\n * Open your menu \u2192 Vehicle Tab \u2192 `Claim Current Vehicle as PV`\n\n * Pick garage and slot when prompted\n\n * Done\n\n  ---\n\n **Compatible with**\n\n YimMenu / NewWay Menu (Lua scripting enabled)\n\n ---\n\n Source + full docs \u2192 https://github.com/h4ckxel/claim-vehicle-script\n\n *Use responsibly.*",
+      "gold": "release_showcase",
+      "predicted": "release_showcase"
+    },
+    {
+      "text": "Nightfall\n\nI have stand regular Should i buy nightfall and coload with stand or upgrade stand to ultimate..i dont know about nightfall but their recent updates made it very good some ppl said",
+      "gold": "recommendation_request",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "3 Specific Mods - New To Modding\n\nHello, it's my first time modding and currently looking for 3 specific mods:\n\n  * It allows Franklin/Trevor to use Michael's slow mo ability. * Removes/Stops the Mission Timer when doing missions. For example, when a mission has a requires you to finish it a certain amount of time. * Maxes out all character's stats (permanently, if possible when mod isn't active or installed anymore after applying).  I just recently switched from console to PC and I wanted to 100% the game again.\n\n I'm not used to keyboard and mouse just yet so being able to use the slow mo while shooting would greatly help especially during missions that requires certain headshots.\n\n Also, I wanted to watch the cutscenes but doing so will greatly eats up the Time Completion so if there's a mod that completely removes or stops that, it would be nice. And, no I don't wanna watch the cutscenes separately nor do I want to replay the mission so that I can watch it.\n\n I've spent a lot of time maxing out the stats of 3 characters when I was in console and I'm not completely thrilled doing that again.",
+      "gold": "recommendation_request",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "Natural Vision: Evolved \"Bug\" Help\n\nSo, I have been trying to get rid of this weird visual \"bug\" for hours, yet no matter what I do, I can't fix it. I don't know if I am an idiot and I did something wrong or not. Also, in case you're wondering, I literally only play GTA on pc for sandbox purposes, and I rarely do missions since I completed it on console, so don't make fun of the fact that I barely made progress in the game. lol. I also have the rampage trainer installed so idk if that's an issue. And just a heads up, I'm new to GTA Modding.\n\n *Weird visual glitchy stuff*",
+      "gold": "troubleshooting",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "GTA RP and Single player mods possible conflict.\n\nHi, I'm new to PC and i have been looking to play GTA RP and also story mode/ single player mods (mainly graphical). I have started play Grand RP using the enhanced version of the game, but was wondering if i install single player mods on the enhanced version would this conflict with the anti cheat that is part of Grand RP and any other role play server. \n\n Is it recommended to have the legacy version installed just to be used for single player mods and to have the enhanced version installed for use with Grand RP and normal GTA online. \n\n Sorry if this has been asked before i couldn't find any information on this specific case.",
+      "gold": "recommendation_request",
+      "predicted": "troubleshooting"
+    },
+    {
+      "text": "Looking for a good menu\n\nWhat is a good mod menu that i can use only for\n\n godmode,1shot,tp and such\n\n I'm not interested in any of the $ futures",
+      "gold": "recommendation_request",
+      "predicted": "recommendation_request"
+    }
+  ]
+}

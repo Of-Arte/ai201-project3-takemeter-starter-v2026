@@ -205,24 +205,27 @@ Ask what the poster wants as the _answer_. If the answer they want is a fix for 
 <!-- Both models on the same posts. `python baseline.py --trained results.json`
      prints this table for you. -->
 
-| Measure          | Baseline | Trained | Difference |
-| ---------------- | -------- | ------- | ---------- |
-| Overall accuracy |          |         |            |
-| Macro F1         |          |         |            |
-| F1 — `label_one` |          |         |            |
-| F1 — `label_two` |          |         |            |
+| Measure                       | Baseline | Trained | Difference |
+| ----------------------------- | -------- | ------- | ---------- |
+| Overall accuracy              | 0.833    | 0.733   | -0.100     |
+| Macro F1                      | 0.863    | 0.540   | -0.323     |
+| F1 — `recommendation_request` | 0.762    | 0.870   | +0.108     |
+| F1 — `release_showcase`       | 1.000    | 0.000   | -1.000     |
+| F1 — `troubleshooting`        | 0.828    | 0.750   | -0.078     |
 
 **What I predicted before I looked:**
 
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
 
+I predict the baseline model will beat the trained model on release_showcase because the trained model misclassified many of the release showcase posts as troubleshooting due to the similarity between the post content and a lack of clear examples found within the subreddit.
+
 **What the gap actually means:**
 
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
 
----
+The baseline outperformed the trained model overall. It performed better on 2 of the 3 metrics, mostly because of the misclassification of release_showcase posts. The finetuning did improve performance on recommendation_request posts due to being able to recognize request patterns which were more plentiful within the subreddit's dataset.
 
 ## Run Log — Before
 
