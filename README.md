@@ -273,24 +273,21 @@ model. Your agreement report is the thing that can tell you which.
 <!-- MET or MISSED against LAST UNIT's target. The target has to hold across
      all three seeds, not turn up sometimes. -->
 
-| #   | Criterion | Target | Verdict | How I decided |
-| --- | --------- | ------ | ------- | ------------- |
-| 1   |           |        |         |               |
-| 2   |           |        |         |               |
-| 3   |           |        |         |               |
-| 4   |           |        |         |               |
-| 5   |           |        |         |               |
+| #   | Criterion                     | Target                  | Verdict | How I decided                                                                                                                                           |
+| --- | ----------------------------- | ----------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Overall accuracy              | ≥ 0.78 across all seeds | MISSED  | 0.733, 0.567, 0.700. All three are under 0.78, so it missed on every seed, not just the bad one.                                                        |
+| 2   | F1 — `troubleshooting`        | ≥ 0.80 across all seeds | MISSED  | 0.750, 0.643, 0.815. Only seed 2024 reached 0.80, and the target has to hold on all three.                                                              |
+| 3   | F1 — `recommendation_request` | ≥ 0.72 across all seeds | MISSED  | 0.870, 0.593, 0.714. Seed 42 cleared it easily, but seed 7 missed by a wide margin and seed 2024 missed by 0.006. A miss by 0.006 is still a miss.      |
+| 4   | Dataset class balance         | No class > 65%          | MET     | The largest classes are `troubleshooting` and `recommendation_request` at 42% each. This is a property of the dataset, so it is the same on every seed. |
+| 5   | High-confidence accuracy      | ≥ 0.88 when conf ≥ 0.85 | MISSED  | 0.800, 1.000, 1.000. Seed 42 is below 0.88. The 1.000 results on seeds 7 and 2024 do not rescue it, because the target has to hold on every seed.       |
 
 **Diagnoses**
 
-<!-- For each miss: the cause, and how you know. The four common causes are:
-     too few examples for a label, a boundary you applied inconsistently, a
-     genuinely hard label pair, and a task the model can't reach from this
-     much data.
+**Criteria 1 and 2 (accuracy, `troubleshooting` F1):** `release_showcase` has only about 22 training posts and scored F1 0.000 on every seed, with its misses scattered across both other labels. That is too few examples and limits accuracy.
 
-     ⚠️ Use your agreement report as evidence. It is the only instrument you
-     have that can tell a LABELLING problem from a MODEL problem, and this
-     section is graded on whether you used it that way. -->
+**Criterion 3 (`recommendation_request` F1):** On seed 7 the matrix shows 4 `troubleshooting` posts called `recommendation_request` and 4 the other way, so the model never learned this boundary. It is a hard pair, made worse by a small test set.
+
+**Criterion 5 (high-confidence accuracy):** Mean confidence is about 0.5 whether the model is right or wrong, so it has learned little it is sure of.
 
 ---
 
@@ -302,7 +299,7 @@ model. Your agreement report is the thing that can tell you which.
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** **_ / 30 = _**%
+**Agreement rate:** **28 / 30 = 93.3**%
 
 <!-- Nobody grades this number. A 60% who argues every disagreement from the
      stated rules beats a 95% who wrote "staff was right" nine times. Several
@@ -326,25 +323,27 @@ model. Your agreement report is the thing that can tell you which.
 
 **1.**
 
-> _The post:_
+> _The post:_ "I tracked sleep against session quality for eleven weeks. Under seven hours the next day's intervals were 6-8 seconds per mile slower, every time bar one. Small sample, one runner, but it's consistent enough that I've stopped scheduling hard days after late shifts."
 >
-> _Staff said / I said:_
+> _Staff said / I said:_ `analysis` / `reaction`
 >
-> _My call, and why:_
+> _My call, and why:_ Staff is right. Rule 3 says recency and personal experience do not outrank a load-bearing fact, and here the data is the reason for the conclusion.
 >
-> _Which pile:_
+> _Which pile:_ (a) the rule covered it and I applied it loosely.
 
 **2.**
 
-> _The post:_
+> _The post:_ "Everyone blames the hill at 18 miles. I split the field into people who ran the first half under 1:45 and over, and the slowdown after 18 was almost identical for both groups. If the hill were the problem the fast starters would fall apart harder."
 >
-> _Staff said / I said:_
+> _Staff said / I said:_ `analysis` / `hot_take`
 >
-> _My call, and why:_
+> _My call, and why:_ Staff is right. I read it as a hot take because it was presented as an opinion. However, it presents a logical argument with reasoning that can be evaluated, which is a characteristic of an analysis.
 >
-> _Which pile:_
+> _Which pile:_ (a) the rule covered it and I applied it loosely.
 
 **What the pattern in my disagreements tells me:**
+
+Both misses were analysis posts that I under-credited, for opposite reasons. One because it was personal and one because it had no hard numbers. Neither came from a gap in the rules, so I did not argue a win on any disagreement.
 
 ---
 
