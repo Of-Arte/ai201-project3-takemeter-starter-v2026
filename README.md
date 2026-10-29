@@ -349,24 +349,21 @@ Both misses were analysis posts that I under-credited, for opposite reasons. One
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** I weighted the training loss by the inverse of each label's share of the training split, so a missed `release_showcase` post costs about 2.6 times as much as a missed post of the other two labels. Nothing else changed: same 200 labels, same splits, same seeds, same settings.
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** Criteria 1 and 2. `release_showcase` had F1 0.000 on all three seeds because it has only about 22 training posts and the model never predicted it.
 
 ### Run Log — After
 
-| Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
-| --------- | ------ | ------- | ------ | --------- | ------- |
-| 1.        |        |         |        |           |         |
-| 2.        |        |         |        |           |         |
-| 3.        |        |         |        |           |         |
-| 4.        |        |         |        |           |         |
-| 5.        |        |         |        |           |         |
+| Criterion                        | Target                  | Seed 42 | Seed 7 | Seed 2024 | Verdict |
+| -------------------------------- | ----------------------- | ------- | ------ | --------- | ------- |
+| 1. Overall accuracy              | ≥ 0.78 across all seeds | 0.733   | 0.700  | 0.733     | MISSED  |
+| 2. F1 — `troubleshooting`        | ≥ 0.80 across all seeds | 0.750   | 0.714  | 0.800     | MISSED  |
+| 3. F1 — `recommendation_request` | ≥ 0.72 across all seeds | 0.870   | 0.720  | 0.696     | MISSED  |
+| 4. Dataset class balance         | No class > 65%          | 42.0%   | 42.0%  | 42.0%     | MET     |
+| 5. High-confidence accuracy      | ≥ 0.88 when conf ≥ 0.85 | 0.800   | 1.000  | 0.800     | MISSED  |
 
-**Did it help, and how do I know:**
-
-<!-- If it didn't, say so. Relabelling that didn't help is a genuinely
-     interesting result and earns full credit. -->
+**Did it help, and how do I know:** Partly, but it did not change any verdict. Release_showcase F1 went from 0.000 to 0.571 on seeds 7 and 2024, so the model now predicts the label. Accuracy spread across seeds fell from 0.167 to 0.033, and mean accuracy rose from 0.667 to 0.722. It did nothing on seed 42, where all 5 release_showcase posts were still called troubleshooting.
 
 ---
 
@@ -374,10 +371,18 @@ Both misses were analysis posts that I under-credited, for opposite reasons. One
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
 
+**`release_showcase`:** After weighting, F1 is 0.571 on seeds 7 and 2024 and still 0.000 on seed 42, so 3 of 5 test posts are still missed on the better seeds. The label is learnable, since the baseline scored 1.000, but with only 22 training posts the model needs more examples than I can add right now.
+
+**Criteria 1 and 2:** These stay missed until release_showcase improves, since its misses cap accuracy and flood troubleshooting with false positives.
+
+**Criterion 3:** I would re-read the posts near the troubleshooting boundary and apply my decision rule once.
+
+**Criterion 5:** I would retest it on a larger test split, because only a few predictions reach 0.85 confidence.
+
 **The gap between what I meant my labels to capture and what the model
 learned:**
 
-<!-- Two sentences. Your confusion matrix is the evidence. -->
+I meant my labels to separate three kinds of post: fixes, mod suggestions, and mod releases. The model learned only the first two since it has too few examples to learn what a release post looks like.
 
 <!-- ═════════════════════════════════════════════════════════════════════
 
