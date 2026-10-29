@@ -1,0 +1,18 @@
+{
+  "compared": 30,
+  "agreed": 28,
+  "agreement_rate": 0.9333333333333333,
+  "disagreements": [
+    {
+      "text": "I tracked sleep against session quality for eleven weeks. Under seven hours the next day's intervals were 6-8 seconds per mile slower, every time bar one. Small sample, one runner, but it's consistent enough that I've stopped scheduling hard days after late shifts.",
+      "staff": "analysis",
+      "mine": "reaction"
+    },
+    {
+      "text": "Everyone blames the hill at 18 miles. I split the field into people who ran the first half under 1:45 and over, and the slowdown after 18 was almost identical for both groups. If the hill were the problem the fast starters would fall apart harder.",
+      "staff": "analysis",
+      "mine": "hot_take"
+    }
+  ],
+  "staff_posts_not_in_mine": 0
+}
