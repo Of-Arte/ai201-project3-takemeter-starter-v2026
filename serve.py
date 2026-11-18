@@ -10,6 +10,9 @@ Loads the fine-tuned classifier once, then answers:
     POST /classify   {"text": "..."}  ->  label, confidence, per-label scores
     GET  /docs       FastAPI's built-in page for trying it by hand
 
+Bad input gets a 400 with a JSON body naming what was wrong, never a crash or
+a guess. A failure during inference gets a JSON 500 and the server keeps going.
+
 The model comes from the Hugging Face Hub (v1assets/takemeter-distilbert) and
 is cached after the first download. Point TAKEMETER_MODEL at a local folder
 (e.g. models/takemeter) to serve a model you just trained instead.
@@ -21,7 +24,9 @@ from contextlib import asynccontextmanager
 
 import torch
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
@@ -29,6 +34,10 @@ MODEL_ID = os.environ.get("TAKEMETER_MODEL", "v1assets/takemeter-distilbert")
 HOST = os.environ.get("TAKEMETER_HOST", "127.0.0.1")
 PORT = int(os.environ.get("TAKEMETER_PORT", "8000"))
 MAX_LENGTH = 128  # what the model was trained with — see served_model.json
+# Longest post accepted, in characters. The model only reads the first 128
+# tokens (~500 characters), so anything past this is almost certainly not a
+# post — a pasted log file or a mistake — and is refused rather than truncated.
+MAX_CHARS = 10_000
 
 state = {}
 
@@ -48,6 +57,37 @@ async def lifespan(app):
 app = FastAPI(title="TakeMeter", version="1.0", lifespan=lifespan)
 
 
+class InputError(Exception):
+    def __init__(self, error, detail):
+        self.error, self.detail = error, detail
+
+
+def error_body(error, detail):
+    return {"error": error, "detail": detail}
+
+
+@app.exception_handler(InputError)
+def input_error(request: Request, exc: InputError):
+    return JSONResponse(status_code=400, content=error_body(exc.error, exc.detail))
+
+
+@app.exception_handler(RequestValidationError)
+def invalid_request(request: Request, exc: RequestValidationError):
+    # FastAPI's default here is a 422. A body that isn't JSON, or JSON without a
+    # string `text`, is the client's mistake — that's a 400.
+    if any(e.get("type") == "json_invalid" for e in exc.errors()):
+        return JSONResponse(status_code=400, content=error_body("invalid_json", "Request body is not valid JSON."))
+    return JSONResponse(
+        status_code=400,
+        content=error_body("invalid_request", 'Body must be a JSON object like {"text": "<post>"}.'),
+    )
+
+
+@app.exception_handler(Exception)
+def unexpected_error(request: Request, exc: Exception):
+    return JSONResponse(status_code=500, content=error_body("inference_error", f"{type(exc).__name__}: {exc}"))
+
+
 class ClassifyRequest(BaseModel):
     text: str
 
@@ -56,6 +96,7 @@ class ClassifyResponse(BaseModel):
     label: str
     confidence: float
     scores: dict[str, float]
+    truncated: bool
     latency_ms: float
 
 
@@ -75,9 +116,20 @@ def classify(req: ClassifyRequest):
     # A plain `def`, not `async def`: FastAPI runs it in a worker thread, so a
     # slow inference doesn't block the event loop.
     started = time.perf_counter()
-    inputs = state["tokenizer"](
-        req.text, truncation=True, max_length=MAX_LENGTH, return_tensors="pt"
+    text = req.text.strip()
+    if not text:
+        raise InputError("empty_text", "`text` is empty or only whitespace.")
+    if len(text) > MAX_CHARS:
+        raise InputError("text_too_long", f"`text` is {len(text)} characters; the limit is {MAX_CHARS}.")
+
+    # One tokenizer pass: any overflow comes back as extra rows, so more than
+    # one row means the model only saw the first MAX_LENGTH tokens.
+    # The rows can differ in length, so they stay lists until we keep the first.
+    encoded = state["tokenizer"](
+        text, truncation=True, max_length=MAX_LENGTH, return_overflowing_tokens=True,
     )
+    truncated = len(encoded["input_ids"]) > 1
+    inputs = {k: torch.tensor(encoded[k][:1]) for k in ("input_ids", "attention_mask")}
     with torch.inference_mode():
         logits = state["model"](**inputs).logits[0]
     probs = torch.softmax(logits, dim=-1).tolist()
@@ -86,6 +138,7 @@ def classify(req: ClassifyRequest):
         label=state["labels"][best],
         confidence=round(probs[best], 4),
         scores={l: round(p, 4) for l, p in zip(state["labels"], probs)},
+        truncated=truncated,
         latency_ms=round((time.perf_counter() - started) * 1000, 2),
     )
 
