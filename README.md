@@ -421,3 +421,20 @@ I meant my labels to separate three kinds of post: fixes, mod suggestions, and m
 ---
 
 📖 **How to run this project: [RUNNING.md](RUNNING.md)**
+
+---
+
+## Capstone
+
+**What This Extends**
+
+This extends TakeMeter, my fine-tuned classifier that sorts modding subreddit posts into `troubleshooting`, `recommendation_request` and `release_showcase`. Until now it only existed inside `takemeter.ipynb` where it trained, printed a score, and had no way to ask it about a new post. The improved version is saved and published to the Hugging Face Hub, with a local FastAPI endpoint that loads it and classifies posts over HTTP. Every request writes a structured JSONL log record with its latency and compute cost.
+
+**The Shape**
+
+Shape A — deploy and instrument. I'm adding a local HTTP service (`POST /classify`, `GET /health`) which validates its input and logs each request as a JSONL record. The log records the timestamp, input, predicted label and confidence, a latency breakdown, and memory the request used.
+
+Out of scope:
+- **Model quality.** I'm not retraining for better accuracy, adding labels, or collecting more `release_showcase` examples. The weak `release_showcase` recall documented above stays as it is.
+- **A custom front end.** FastAPI's built-in `/docs` page is the only UI.
+- **Hosted deployment.** I'm not putting the service on a public URL, no auth, or rate limiting.
