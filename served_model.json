@@ -1,0 +1,30 @@
+{
+  "hub_repo": "v1assets/takemeter-distilbert",
+  "base_model": "distilbert-base-uncased",
+  "labels": [
+    "troubleshooting",
+    "recommendation_request",
+    "release_showcase"
+  ],
+  "seed": 2024,
+  "weight_classes": true,
+  "class_weights": {
+    "troubleshooting": 0.7853,
+    "recommendation_request": 0.7989,
+    "release_showcase": 2.1061
+  },
+  "epochs": 3,
+  "learning_rate": 2e-05,
+  "batch_size": 16,
+  "max_length": 128,
+  "n_train": 139,
+  "n_val": 31,
+  "n_test": 30,
+  "test_accuracy": 0.7667,
+  "test_f1_macro": 0.7591,
+  "model_size_mb": 268.8,
+  "device": "cpu",
+  "torch_version": "2.15.0+cpu",
+  "python_version": "3.12.1",
+  "train_seconds": 81.5
+}
