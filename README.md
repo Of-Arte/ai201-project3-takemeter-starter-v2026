@@ -506,3 +506,50 @@ Memory is the other cost: 453 MB after loading, 667 MB peak while serving, held 
 
 For a hundred people a day, one classification each:
 100 × 0.252 CPU-s = **25.2 CPU-seconds a day**, plus one cold start per restart (2.5 s load + 4.5 CPU-s first request). That's under half a minute of one CPU core per day, and $0 in API fees. The real constraint at that volume isn't compute but memory: the service needs about 670 MB resident all day, which is why it doesn't fit a 512 MB free host.
+
+**Run Log and Verdicts**
+
+Each trial starts its own `serve.py` with its own log, sends one warm-up post, then sends the 30 test posts and 14 bad inputs ten times over, one at a time and scores the criteria from that trial's log. How each criterion is measured is in the docstring of `run_trials.py`. Criterion 1 uses the client's round-trip time (how long the caller waits), and criterion 2 uses 14 bad inputs (the 7 `client.py` always sent plus 7 found by probing the service).
+
+| Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
+|---|---|---|---|---|---|
+| 1. Fast responses once the server is running | ≥ 90% of valid requests under 100 ms | 300/300 | 300/300 | 300/300 | MET |
+| 2. Bad input gets a 400, never a 500 | 140/140 get a 400, zero 500 | 130/140 | 130/140 | 130/140 | MISSED |
+| 3. Every request is logged | 100% | 441/441 | 441/441 | 441/441 | MET |
+| 4. Memory stays under 750 MB | ≤ 750 MB peak | 667.1 MB | 666.5 MB | 666.8 MB | MET |
+| 5. Most posts fit in the 128-token limit | ≤ 40% of 30 posts truncated | 10/30 | 10/30 | 10/30 | MET |
+
+Raw files: `runs/before/trial-N.jsonl` (the server's log, written by `log_classify` in `serve.py`), `runs/before/trial-N.json` (every request the client sent and what came back, from `run_trial` in `run_trials.py`), `runs/before/summary.json`. The output below is from trial 1.
+
+*Criterion 1.* Client round-trip p50 48.0 ms, p95 70.8 ms, max 81.8 ms; server `total_ms` p50 37.4 ms, p95 53.1 ms. Runs 2 and 3 maxed at 96.0 and 94.8 ms. The three slowest requests in trial 1, from `run_trial` in `run_trials.py`:
+
+```json
+{"request_id": "d288f3c8", "name": "post_26", "client_ms": 81.81, "server_ms": 79.81, "n_tokens": 128}
+{"request_id": "7e571539", "name": "post_28", "client_ms": 81.43, "server_ms": 52.55, "n_tokens": 128}
+{"request_id": "6f00b9ad", "name": "post_28", "client_ms": 77.22, "server_ms": 51.36, "n_tokens": 128}
+```
+
+*Criterion 2.* 13 of the 14 bad inputs got a 400 on every pass, `nul_only_text` (`{"text": "\u0000\u0000"}`) got a 200 all ten times, and no input got a 500:
+
+```jsonl
+{"ts": "2026-11-19T00:39:10.019+00:00", "event": "request", "model": "v1assets/takemeter-distilbert", "request_id": "427c7299", "status": 200, "error": null, "exception": null, "input_preview": "\u0000\u0000", "input_chars": 2, "n_tokens": 2, "truncated": false, "label": "release_showcase", "confidence": 0.4184, "scores": {"troubleshooting": 0.2568, "recommendation_request": 0.3248, "release_showcase": 0.4184}, "tokenize_ms": 0.15, "inference_ms": 8.13, "total_ms": 9.39, "cpu_ms": 78.1, "rss_mb": 665.4, "peak_rss_mb": 665.4}
+{"ts": "2026-11-19T00:39:09.951+00:00", "event": "request", "model": "v1assets/takemeter-distilbert", "request_id": "6adde7d7", "status": 400, "error": "empty_text", "exception": null, "input_preview": "", "input_chars": 0, "n_tokens": null, "truncated": null, "label": null, "confidence": null, "scores": null, "tokenize_ms": null, "inference_ms": null, "total_ms": 1.04, "cpu_ms": 0.0, "rss_mb": 665.1, "peak_rss_mb": 665.1}
+{"ts": "2026-11-19T00:39:10.008+00:00", "event": "request", "model": "v1assets/takemeter-distilbert", "request_id": "d48f09c8", "status": 400, "error": null, "exception": null, "input_preview": "{\"text\": \"�� broken bytes\"}", "input_chars": 27, "n_tokens": null, "truncated": null, "label": null, "confidence": null, "scores": null, "tokenize_ms": null, "inference_ms": null, "total_ms": 0.41, "cpu_ms": 0.0, "rss_mb": 665.4, "peak_rss_mb": 665.4}
+```
+
+*Criterion 3.* From `run_trial` in `run_trials.py`, trial 1: `{"logged": 441, "of": 441, "missing": [], "met": true}`. The 441 includes the warm-up and all 140 rejected requests.
+
+*Criterion 4.* The startup record and the request with the highest `peak_rss_mb` in trial 1:
+
+```jsonl
+{"ts": "2026-11-19T00:39:08.132+00:00", "event": "startup", "model": "v1assets/takemeter-distilbert", "load_seconds": 0.84, "rss_mb": 452.5, "torch_threads": 6, "torch_version": "2.15.0+cpu", "python_version": "3.12.1", "device": "cpu"}
+{"ts": "2026-11-19T00:39:13.794+00:00", "event": "request", "model": "v1assets/takemeter-distilbert", "request_id": "5ca2a512", "status": 200, "error": null, "exception": null, "input_preview": "Texture glitching (black/purple squares) leading to ERR_GFX_STATE after recent GTA V Enhanced Update\r\n\r\nHi everyone, \r\n\r", "input_chars": 1559, "n_tokens": 128, "truncated": true, "label": "troubleshooting", "confidence": 0.372, "scores": {"troubleshooting": 0.372, "recommendation_request": 0.3272, "release_showcase": 0.3008}, "tokenize_ms": 1.05, "inference_ms": 48.71, "total_ms": 50.93, "cpu_ms": 375.0, "rss_mb": 667.1, "peak_rss_mb": 667.1}
+```
+
+*Criterion 5.* The first truncated post in trial 1 cut at 128 tokens:
+
+```jsonl
+{"ts": "2026-11-19T00:39:08.758+00:00", "event": "request", "model": "v1assets/takemeter-distilbert", "request_id": "139e6019", "status": 200, "error": null, "exception": null, "input_preview": "Added cars not showing up\r\n\r\nPretty sure I’ve done it correctly…. Added it to mods folder, copped the line to dlc list, ", "input_chars": 652, "n_tokens": 128, "truncated": true, "label": "troubleshooting", "confidence": 0.4398, "scores": {"troubleshooting": 0.4398, "recommendation_request": 0.3253, "release_showcase": 0.2349}, "tokenize_ms": 0.6, "inference_ms": 40.27, "total_ms": 41.88, "cpu_ms": 187.5, "rss_mb": 659.2, "peak_rss_mb": 659.2}
+```
+
+All three trials of criteria 2 and 5 were identical. Each trial was a separate `serve.py` process with its own log and its own request ids. They're identical because both are decided by fixed inputs. Criteria 1 and 4, which depend on the machine, did vary.

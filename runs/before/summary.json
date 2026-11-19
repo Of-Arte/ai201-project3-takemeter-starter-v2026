@@ -1,0 +1,341 @@
+{
+  "label": "before",
+  "trials": [
+    {
+      "trial": 1,
+      "health": {
+        "status": "ok",
+        "model": "v1assets/takemeter-distilbert",
+        "labels": [
+          "troubleshooting",
+          "recommendation_request",
+          "release_showcase"
+        ],
+        "load_seconds": 0.84,
+        "torch_threads": 6,
+        "log": "runs\\before\\trial-1.jsonl"
+      },
+      "warmup": {
+        "kind": "warmup",
+        "name": "warmup",
+        "status": 200,
+        "request_id": "25e41017",
+        "client_ms": 54.79
+      },
+      "load_seconds": 0.84,
+      "requests_sent": 441,
+      "accuracy": 0.7667,
+      "criteria": {
+        "1": {
+          "under_100ms": 300,
+          "of": 300,
+          "rate": 1.0,
+          "client_ms_p50": 48.02,
+          "client_ms_p95": 70.81,
+          "client_ms_max": 81.81,
+          "server_ms_p50": 37.42,
+          "server_ms_p95": 53.05,
+          "slowest": [
+            {
+              "request_id": "d288f3c8",
+              "name": "post_26",
+              "client_ms": 81.81,
+              "server_ms": 79.81,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "7e571539",
+              "name": "post_28",
+              "client_ms": 81.43,
+              "server_ms": 52.55,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "6f00b9ad",
+              "name": "post_28",
+              "client_ms": 77.22,
+              "server_ms": 51.36,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "4d937543",
+              "name": "post_24",
+              "client_ms": 75.09,
+              "server_ms": 52.86,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "4df3efb1",
+              "name": "post_23",
+              "client_ms": 74.86,
+              "server_ms": 50.68,
+              "n_tokens": 128
+            }
+          ],
+          "met": true
+        },
+        "2": {
+          "got_400": 130,
+          "of": 140,
+          "got_500": 0,
+          "not_400": {
+            "nul_only_text": [
+              200,
+              200,
+              200,
+              200,
+              200,
+              200,
+              200,
+              200,
+              200,
+              200
+            ]
+          },
+          "met": false
+        },
+        "3": {
+          "logged": 441,
+          "of": 441,
+          "missing": [],
+          "met": true
+        },
+        "4": {
+          "peak_rss_mb": 667.1,
+          "startup_rss_mb": 452.5,
+          "met": true
+        },
+        "5": {
+          "truncated": 10,
+          "of": 30,
+          "rate": 0.3333,
+          "met": true
+        }
+      }
+    },
+    {
+      "trial": 2,
+      "health": {
+        "status": "ok",
+        "model": "v1assets/takemeter-distilbert",
+        "labels": [
+          "troubleshooting",
+          "recommendation_request",
+          "release_showcase"
+        ],
+        "load_seconds": 0.85,
+        "torch_threads": 6,
+        "log": "runs\\before\\trial-2.jsonl"
+      },
+      "warmup": {
+        "kind": "warmup",
+        "name": "warmup",
+        "status": 200,
+        "request_id": "0b168630",
+        "client_ms": 80.56
+      },
+      "load_seconds": 0.85,
+      "requests_sent": 441,
+      "accuracy": 0.7667,
+      "criteria": {
+        "1": {
+          "under_100ms": 300,
+          "of": 300,
+          "rate": 1.0,
+          "client_ms_p50": 49.01,
+          "client_ms_p95": 69.46,
+          "client_ms_max": 95.99,
+          "server_ms_p50": 37.09,
+          "server_ms_p95": 52.7,
+          "slowest": [
+            {
+              "request_id": "633631d9",
+              "name": "post_28",
+              "client_ms": 95.99,
+              "server_ms": 52.34,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "ab1750a3",
+              "name": "post_3",
+              "client_ms": 82.05,
+              "server_ms": 52.49,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "cf331f27",
+              "name": "post_24",
+              "client_ms": 79.89,
+              "server_ms": 53.43,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "016d1b41",
+              "name": "post_21",
+              "client_ms": 79.03,
+              "server_ms": 51.59,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "7da236d5",
+              "name": "post_3",
+              "client_ms": 78.61,
+              "server_ms": 52.24,
+              "n_tokens": 128
+            }
+          ],
+          "met": true
+        },
+        "2": {
+          "got_400": 130,
+          "of": 140,
+          "got_500": 0,
+          "not_400": {
+            "nul_only_text": [
+              200,
+              200,
+              200,
+              200,
+              200,
+              200,
+              200,
+              200,
+              200,
+              200
+            ]
+          },
+          "met": false
+        },
+        "3": {
+          "logged": 441,
+          "of": 441,
+          "missing": [],
+          "met": true
+        },
+        "4": {
+          "peak_rss_mb": 666.5,
+          "startup_rss_mb": 452.6,
+          "met": true
+        },
+        "5": {
+          "truncated": 10,
+          "of": 30,
+          "rate": 0.3333,
+          "met": true
+        }
+      }
+    },
+    {
+      "trial": 3,
+      "health": {
+        "status": "ok",
+        "model": "v1assets/takemeter-distilbert",
+        "labels": [
+          "troubleshooting",
+          "recommendation_request",
+          "release_showcase"
+        ],
+        "load_seconds": 0.85,
+        "torch_threads": 6,
+        "log": "runs\\before\\trial-3.jsonl"
+      },
+      "warmup": {
+        "kind": "warmup",
+        "name": "warmup",
+        "status": 200,
+        "request_id": "e821ab48",
+        "client_ms": 59.18
+      },
+      "load_seconds": 0.85,
+      "requests_sent": 441,
+      "accuracy": 0.7667,
+      "criteria": {
+        "1": {
+          "under_100ms": 300,
+          "of": 300,
+          "rate": 1.0,
+          "client_ms_p50": 47.32,
+          "client_ms_p95": 69.47,
+          "client_ms_max": 94.78,
+          "server_ms_p50": 37.53,
+          "server_ms_p95": 53.69,
+          "slowest": [
+            {
+              "request_id": "91020301",
+              "name": "post_16",
+              "client_ms": 94.78,
+              "server_ms": 71.43,
+              "n_tokens": 57
+            },
+            {
+              "request_id": "ffc76f66",
+              "name": "post_23",
+              "client_ms": 80.97,
+              "server_ms": 53.29,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "2d86db54",
+              "name": "post_26",
+              "client_ms": 80.72,
+              "server_ms": 55.12,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "1188299d",
+              "name": "post_28",
+              "client_ms": 77.93,
+              "server_ms": 53.51,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "6ce3a6ea",
+              "name": "post_23",
+              "client_ms": 77.1,
+              "server_ms": 52.35,
+              "n_tokens": 128
+            }
+          ],
+          "met": true
+        },
+        "2": {
+          "got_400": 130,
+          "of": 140,
+          "got_500": 0,
+          "not_400": {
+            "nul_only_text": [
+              200,
+              200,
+              200,
+              200,
+              200,
+              200,
+              200,
+              200,
+              200,
+              200
+            ]
+          },
+          "met": false
+        },
+        "3": {
+          "logged": 441,
+          "of": 441,
+          "missing": [],
+          "met": true
+        },
+        "4": {
+          "peak_rss_mb": 666.8,
+          "startup_rss_mb": 453.0,
+          "met": true
+        },
+        "5": {
+          "truncated": 10,
+          "of": 30,
+          "rate": 0.3333,
+          "met": true
+        }
+      }
+    }
+  ]
+}

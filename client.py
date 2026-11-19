@@ -42,24 +42,34 @@ for _stream in (sys.stdout, sys.stderr):
     except (AttributeError, OSError, ValueError):
         pass
 
-# Each is (name, raw body, status the service should answer with).
+# Each is (name, raw body, status the service should answer with, content type).
+# A body is str (sent as UTF-8) or bytes (sent as is). Content type None sends
+# no Content-Type header at all.
+JSON = "application/json"
 BAD_INPUTS = [
-    ("empty_text", '{"text": ""}', 400),
-    ("whitespace_text", '{"text": "   \\n\\t  "}', 400),
-    ("missing_field", "{}", 400),
-    ("wrong_type", '{"text": 5}', 400),
-    ("invalid_json", "{text", 400),
-    ("not_an_object", '"just a string"', 400),
-    ("too_long", json.dumps({"text": "word " * 2500}), 400),
+    ("empty_text", '{"text": ""}', 400, JSON),
+    ("whitespace_text", '{"text": "   \\n\\t  "}', 400, JSON),
+    ("missing_field", "{}", 400, JSON),
+    ("wrong_type", '{"text": 5}', 400, JSON),
+    ("invalid_json", "{text", 400, JSON),
+    ("not_an_object", '"just a string"', 400, JSON),
+    ("too_long", json.dumps({"text": "word " * 2500}), 400, JSON),
+    # Added for the capstone trials (criterion 2), from probing the service.
+    ("null_text", '{"text": null}', 400, JSON),
+    ("list_text", '{"text": ["a"]}', 400, JSON),
+    ("no_content_type", '{"text": "my game crashes on startup"}', 400, None),
+    ("text_plain", '{"text": "my game crashes on startup"}', 400, "text/plain"),
+    ("empty_body", "", 400, JSON),
+    ("non_utf8_body", b'{"text": "\xff\xfe broken bytes"}', 400, JSON),
+    ("nul_only_text", '{"text": "\\u0000\\u0000"}', 400, JSON),
 ]
 
 
-def post(url, body, timeout):
+def post(url, body, timeout, content_type=JSON):
     """Send one request. Returns (status, request_id, parsed body or None, client_ms)."""
-    req = urllib.request.Request(
-        url, data=body.encode("utf-8"), method="POST",
-        headers={"Content-Type": "application/json"},
-    )
+    data = body if isinstance(body, bytes) else body.encode("utf-8")
+    headers = {"Content-Type": content_type} if content_type else {}
+    req = urllib.request.Request(url, data=data, method="POST", headers=headers)
     started = time.perf_counter()
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
@@ -83,11 +93,13 @@ def build_jobs(posts, repeat, include_bad):
             jobs.append({
                 "kind": "post", "name": f"post_{i}", "expected_label": row["label"],
                 "expected_status": 200, "body": json.dumps({"text": row["text"]}),
+                "content_type": JSON,
             })
         if include_bad:
-            for name, body, expected in BAD_INPUTS:
+            for name, body, expected, content_type in BAD_INPUTS:
                 jobs.append({"kind": "bad", "name": name, "expected_label": None,
-                             "expected_status": expected, "body": body})
+                             "expected_status": expected, "body": body,
+                             "content_type": content_type})
     return jobs
 
 
@@ -186,7 +198,7 @@ def main():
             delay = t0 + i * interval - time.perf_counter()
             if delay > 0:
                 time.sleep(delay)
-        status, rid, body, client_ms = post(f"{args.url}/classify", job["body"], args.timeout)
+        status, rid, body, client_ms = post(f"{args.url}/classify", job["body"], args.timeout, job["content_type"])
         return {
             "kind": job["kind"], "name": job["name"], "status": status, "request_id": rid,
             "expected_status": job["expected_status"], "expected_label": job["expected_label"],
