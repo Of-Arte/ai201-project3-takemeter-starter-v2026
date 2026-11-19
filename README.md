@@ -593,3 +593,23 @@ One thing moved the wrong way, and it isn't the fix. Run 3 of criterion 1 had it
 ```jsonl
 {"ts": "2026-11-19T00:51:44.846+00:00", "event": "request", "model": "v1assets/takemeter-distilbert", "request_id": "e63ad1bc", "status": 200, "error": null, "exception": null, "input_preview": "Need help with crashing\r\n\r\nThis might be a long shot but I've tried literally everything I can think of to fix this for ", "input_chars": 799, "n_tokens": 128, "truncated": true, "label": "troubleshooting", "confidence": 0.4166, "scores": {"troubleshooting": 0.4166, "recommendation_request": 0.3294, "release_showcase": 0.254}, "tokenize_ms": 1.13, "inference_ms": 119.82, "total_ms": 122.3, "cpu_ms": 562.5, "rss_mb": 665.8, "peak_rss_mb": 666.5}
 ```
+
+**What's Still Broken**
+
+All five criteria were met after the fix but criterion 5 was set too loose.
+
+Whether a post gets cut off depends only on the post and the 128-token limit.  All six trials cut the same 10 of 30 posts. The 40% target was placed above a number that was always going to be 33%.
+
+Why I stopped: Raising the limit means retraining the model at 256 tokens, which is out of scope for this unit.
+
+What I'd do next: Retrain at 256 tokens, then run all five criteria with `run_trials.py`. Posts being classified on only part of their text is the only gap I measured that changes the answer a user will see.
+
+**How I Used AI**
+
+I used Claude Code to build the service, the logging and the trial runner.
+
+What I asked: Wrap my classifier in a FastAPI service where bad input gets a 400, and an error gets a 500 while the server keeps running.
+
+What I got back: `serve.py` with those error handlers, with code that marked long posts as `truncated`. The code crashed on any post over 128 tokens and the request failed with a 500 `inference_error` (`ValueError: Unable to create tensor…`).
+
+What changed: The 500 handler sent back clean JSON, and the server still answered `/health` afterwards. So I kept the handler and had the truncation code fixed to keep the rows and use only the first one. Resubmitting the same long post gave a 200 with `truncated: true`.
