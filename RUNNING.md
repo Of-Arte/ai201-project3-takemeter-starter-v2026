@@ -1,5 +1,106 @@
 # Running TakeMeter
 
+**Run path: Path B - local.** The classifier runs as a HTTP service on your machine. The model downloads
+from the Hugging Face Hub the first time the service starts.
+
+## The command
+
+```bash
+python -m venv .venv
+source .venv/bin/activate          # Windows PowerShell: .venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+
+python serve.py
+```
+
+`python serve.py` is the one command that starts the system. It's ready when it prints:
+
+```
+Loaded v1assets/takemeter-distilbert in 0.86s — labels: troubleshooting, recommendation_request, release_showcase
+Logging to logs/requests.jsonl
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+```
+
+The first start downloads the model (269 MB) — 9.3 s from a clean clone and after that it
+loads from the Hugging Face cache in about a second. No API key or account is
+needed.
+
+## Using it
+
+| | |
+|---|---|
+| `GET  http://127.0.0.1:8000/health` | Status, which model, how long it took to load |
+| `POST http://127.0.0.1:8000/classify` | Body `{"text": "<post>"}` returns → `label`, `confidence`, `scores`, `truncated`, `request_id` |
+| `http://127.0.0.1:8000/docs` | FastAPI's built-in page — try `/classify` from the browser |
+
+```bash
+curl -X POST http://127.0.0.1:8000/classify -H "Content-Type: application/json" -d '{"text": "Game crashes on startup after installing the new texture pack, any fix?"}'
+```
+
+Bad input gets a `400` with `{"error": "<code>", "detail": "..."}`: `empty_text`,
+`text_too_long` (over 10,000 characters), `invalid_request` (no string `text`
+field) or `invalid_json`. An exception during inference gets a JSON `500`
+(`inference_error`) and the service keeps running.
+
+## The log
+
+Every `/classify` request answered, rejected or crashed. Appends one JSON
+line to `logs/requests.jsonl`. The field list
+is at the top of `serve.py`. `logs/` is gitignored.
+
+## Driving it and measuring it
+
+With the service running, in a second terminal (venv activated):
+
+```bash
+python client.py --label <name>
+```
+
+Sends the 30 posts in `test_split.csv` then summarises the server's log for those requests. 
+Writes to `runs/<name>.json`. Options: `--repeat N`, `--no-bad`,
+`--concurrency N`, `--rate R` (requests per second).
+
+## Settings
+
+All optional, as environment variables:
+
+| Variable | Default | |
+|---|---|---|
+| `TAKEMETER_MODEL` | `v1assets/takemeter-distilbert` | A Hub id, or a local folder such as `models/takemeter` |
+| `TAKEMETER_PORT` | `8000` | |
+| `TAKEMETER_HOST` | `127.0.0.1` | |
+| `TAKEMETER_LOG` | `logs/requests.jsonl` | |
+
+## What the environment needs
+
+| | |
+|---|---|
+| Python | 3.11, 3.12 or 3.13 (not 3.14). Tested on 3.12.1, Windows 11, from a clean clone into a fresh venv |
+| Dependencies | `requirements.txt`, pinned with lower and upper bounds. Tested with torch 2.15.0+cpu, transformers 4.57.6, fastapi 0.165.0 |
+| Model | `v1assets/takemeter-distilbert` on the Hugging Face Hub — 269 MB (`model.safetensors` 268 MB + tokenizer). Cached under `~/.cache/huggingface` |
+| Memory | About 450 MB after loading, about 650 MB once serving. Too much for a 512 MB free host, which is why this is Path B |
+| Disk | About 260 MB for the model cache, plus the venv. |
+| Hardware | CPU only. No GPU needed |
+
+## Where the model came from
+
+```bash
+python train_and_save.py                                   # ~2 min on CPU
+hf upload v1assets/takemeter-distilbert models/takemeter .
+```
+
+`train_and_save.py` retrains the unit 6 improved configuration and saves it to `models/takemeter/`. `served_model.json` records
+how it was trained and how it scored (test accuracy 0.767, macro F1 0.759). 
+To serve a model you trained yourself without uploading it:
+`TAKEMETER_MODEL=models/takemeter python serve.py`.
+
+---
+
+# The original pipeline (project 3)
+
+Everything below is the starter's setup for the notebook, the baseline and the
+agreement check. It still works the same way.
+
 Everything about how the starter works.
 
 This pair is different from the last two: **you train a model.** It runs on
@@ -11,7 +112,7 @@ nothing hosted.
 ## Before your first class
 
 One setup, one virtual environment, everything in this repo. The
-[environment setup page](../pages/ide_setup) has the per-operating-system
+[environment setup page](https://docs.python.org/3/library/venv.html) has the per-operating-system
 commands.
 
 ```bash
