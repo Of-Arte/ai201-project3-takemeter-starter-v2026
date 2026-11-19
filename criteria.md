@@ -121,3 +121,48 @@ For predictions made with confidence greater than or equal to 0.85, prediction a
      A number you missed stays where it is, gets diagnosed, and gets a fix
      attempted. That's where the points are.
      ───────────────────────────────────────────────────────────────────────── -->
+
+---
+
+# Capstone acceptance criteria
+
+Written for the capstone extension, before any trial was run.
+---
+
+## 1. Fast responses once the server is running
+
+With the server already running, at least 9 of 10 valid requests get a response in under 100 ms.
+
+**Why this target:** A request to a running server takes about 40 ms on average. 100 ms keeps responses quick while leaving room for longer posts, which may take longer.
+
+---
+
+## 2. Bad input gets a 400, never a 500
+
+Every bad input gets an HTTP 400. None gets a 500.
+
+**Why this target:** Bad input should be turned away before it reaches the model, and never crashes it.
+
+---
+
+## 3. Every request is logged
+
+Every request the server receives has a record in `logs/requests.jsonl` with a matching `request_id`.
+
+**Why this target:** A failure that isn't logged can't be diagnosed. Logging every request means every attempt can be traced.
+
+---
+
+## 4. Memory stays under 750 MB
+
+Peak process memory (`peak_rss_mb`) stays at or below 750 MB while the server handles requests continuously.
+
+**Why this target:** The model and PyTorch peak at about 667 MB. A 750 MB ceiling would catch a memory leak.
+
+---
+
+## 5. Most posts fit in the 128-token limit
+
+No more than 40% of the test posts are cut off by the model's 128-token limit.
+
+**Why this target:** About 33% of test posts hit the limit now. Keeping it at 40% or below means most posts are classified on their full text.
