@@ -61,6 +61,8 @@ PREVIEW_CHARS = 120  # how much of each input the log keeps
 # event=request:    request_id     8 hex chars, also returned as X-Request-ID
 #                   status         HTTP status sent back
 #                   error          null, or the error code in the response body
+#                                  (empty_text, no_content, text_too_long,
+#                                  invalid_request, invalid_json, inference_error)
 #                   input_preview  first 120 chars of the text (or raw body, if
 #                                  it wasn't valid JSON)
 #                   input_chars    length of the text (or raw body)
@@ -274,6 +276,16 @@ def classify(req: ClassifyRequest, request: Request):
     truncated = len(encoded["input_ids"]) > 1
     inputs = {k: torch.tensor(encoded[k][:1]) for k in ("input_ids", "attention_mask")}
     t1 = time.perf_counter()
+
+    # The capstone improvement. `strip()` above only knows about whitespace, so
+    # text made of characters the tokenizer throws away (null bytes, other
+    # control characters) got past it, and the model classified nothing but
+    # its own [CLS] and [SEP]. Judge emptiness by what the model would read.
+    content_tokens = len(encoded["input_ids"][0]) - state["tokenizer"].num_special_tokens_to_add()
+    if content_tokens < 1:
+        result.update(n_tokens=len(encoded["input_ids"][0]), tokenize_ms=round((t1 - t0) * 1000, 2))
+        raise InputError("no_content", "`text` has no characters the model can read.")
+
     with torch.inference_mode():
         logits = state["model"](**inputs).logits[0]
     probs = torch.softmax(logits, dim=-1).tolist()

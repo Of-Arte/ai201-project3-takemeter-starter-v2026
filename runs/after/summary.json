@@ -1,0 +1,302 @@
+{
+  "label": "after",
+  "trials": [
+    {
+      "trial": 1,
+      "health": {
+        "status": "ok",
+        "model": "v1assets/takemeter-distilbert",
+        "labels": [
+          "troubleshooting",
+          "recommendation_request",
+          "release_showcase"
+        ],
+        "load_seconds": 0.79,
+        "torch_threads": 6,
+        "log": "runs\\after\\trial-1.jsonl"
+      },
+      "warmup": {
+        "kind": "warmup",
+        "name": "warmup",
+        "status": 200,
+        "request_id": "456351a1",
+        "client_ms": 56.46
+      },
+      "load_seconds": 0.79,
+      "requests_sent": 441,
+      "accuracy": 0.7667,
+      "criteria": {
+        "1": {
+          "under_100ms": 300,
+          "of": 300,
+          "rate": 1.0,
+          "client_ms_p50": 45.94,
+          "client_ms_p95": 71.09,
+          "client_ms_max": 78.96,
+          "server_ms_p50": 36.31,
+          "server_ms_p95": 52.74,
+          "slowest": [
+            {
+              "request_id": "e2d5f17e",
+              "name": "post_24",
+              "client_ms": 78.96,
+              "server_ms": 51.05,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "251c14bb",
+              "name": "post_23",
+              "client_ms": 78.11,
+              "server_ms": 53.83,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "184483ff",
+              "name": "post_6",
+              "client_ms": 76.64,
+              "server_ms": 74.54,
+              "n_tokens": 71
+            },
+            {
+              "request_id": "10751ca0",
+              "name": "post_26",
+              "client_ms": 76.17,
+              "server_ms": 50.53,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "6cfe45da",
+              "name": "post_21",
+              "client_ms": 76.15,
+              "server_ms": 50.98,
+              "n_tokens": 128
+            }
+          ],
+          "met": true
+        },
+        "2": {
+          "got_400": 140,
+          "of": 140,
+          "got_500": 0,
+          "not_400": {},
+          "met": true
+        },
+        "3": {
+          "logged": 441,
+          "of": 441,
+          "missing": [],
+          "met": true
+        },
+        "4": {
+          "peak_rss_mb": 667.2,
+          "startup_rss_mb": 453.2,
+          "met": true
+        },
+        "5": {
+          "truncated": 10,
+          "of": 30,
+          "rate": 0.3333,
+          "met": true
+        }
+      }
+    },
+    {
+      "trial": 2,
+      "health": {
+        "status": "ok",
+        "model": "v1assets/takemeter-distilbert",
+        "labels": [
+          "troubleshooting",
+          "recommendation_request",
+          "release_showcase"
+        ],
+        "load_seconds": 0.88,
+        "torch_threads": 6,
+        "log": "runs\\after\\trial-2.jsonl"
+      },
+      "warmup": {
+        "kind": "warmup",
+        "name": "warmup",
+        "status": 200,
+        "request_id": "1f38c5fc",
+        "client_ms": 66.07
+      },
+      "load_seconds": 0.88,
+      "requests_sent": 441,
+      "accuracy": 0.7667,
+      "criteria": {
+        "1": {
+          "under_100ms": 300,
+          "of": 300,
+          "rate": 1.0,
+          "client_ms_p50": 46.13,
+          "client_ms_p95": 72.27,
+          "client_ms_max": 95.48,
+          "server_ms_p50": 37.12,
+          "server_ms_p95": 52.72,
+          "slowest": [
+            {
+              "request_id": "ea1ad7da",
+              "name": "post_24",
+              "client_ms": 95.48,
+              "server_ms": 93.47,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "7eeab403",
+              "name": "post_17",
+              "client_ms": 86.81,
+              "server_ms": 63.05,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "187403aa",
+              "name": "post_27",
+              "client_ms": 78.78,
+              "server_ms": 53.68,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "576a6fb9",
+              "name": "post_17",
+              "client_ms": 78.55,
+              "server_ms": 53.09,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "40e9e798",
+              "name": "post_20",
+              "client_ms": 77.72,
+              "server_ms": 45.72,
+              "n_tokens": 128
+            }
+          ],
+          "met": true
+        },
+        "2": {
+          "got_400": 140,
+          "of": 140,
+          "got_500": 0,
+          "not_400": {},
+          "met": true
+        },
+        "3": {
+          "logged": 441,
+          "of": 441,
+          "missing": [],
+          "met": true
+        },
+        "4": {
+          "peak_rss_mb": 666.3,
+          "startup_rss_mb": 452.8,
+          "met": true
+        },
+        "5": {
+          "truncated": 10,
+          "of": 30,
+          "rate": 0.3333,
+          "met": true
+        }
+      }
+    },
+    {
+      "trial": 3,
+      "health": {
+        "status": "ok",
+        "model": "v1assets/takemeter-distilbert",
+        "labels": [
+          "troubleshooting",
+          "recommendation_request",
+          "release_showcase"
+        ],
+        "load_seconds": 0.85,
+        "torch_threads": 6,
+        "log": "runs\\after\\trial-3.jsonl"
+      },
+      "warmup": {
+        "kind": "warmup",
+        "name": "warmup",
+        "status": 200,
+        "request_id": "14156169",
+        "client_ms": 64.22
+      },
+      "load_seconds": 0.85,
+      "requests_sent": 441,
+      "accuracy": 0.7667,
+      "criteria": {
+        "1": {
+          "under_100ms": 299,
+          "of": 300,
+          "rate": 0.9967,
+          "client_ms_p50": 46.5,
+          "client_ms_p95": 68.29,
+          "client_ms_max": 124.42,
+          "server_ms_p50": 37.05,
+          "server_ms_p95": 52.34,
+          "slowest": [
+            {
+              "request_id": "e63ad1bc",
+              "name": "post_20",
+              "client_ms": 124.42,
+              "server_ms": 122.3,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "db21923e",
+              "name": "post_24",
+              "client_ms": 79.5,
+              "server_ms": 51.55,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "3a6a03b3",
+              "name": "post_3",
+              "client_ms": 77.05,
+              "server_ms": 51.48,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "13686e8a",
+              "name": "post_22",
+              "client_ms": 76.45,
+              "server_ms": 49.61,
+              "n_tokens": 128
+            },
+            {
+              "request_id": "db4b2e67",
+              "name": "post_26",
+              "client_ms": 73.82,
+              "server_ms": 53.03,
+              "n_tokens": 128
+            }
+          ],
+          "met": true
+        },
+        "2": {
+          "got_400": 140,
+          "of": 140,
+          "got_500": 0,
+          "not_400": {},
+          "met": true
+        },
+        "3": {
+          "logged": 441,
+          "of": 441,
+          "missing": [],
+          "met": true
+        },
+        "4": {
+          "peak_rss_mb": 666.5,
+          "startup_rss_mb": 453.4,
+          "met": true
+        },
+        "5": {
+          "truncated": 10,
+          "of": 30,
+          "rate": 0.3333,
+          "met": true
+        }
+      }
+    }
+  ]
+}

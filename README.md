@@ -553,3 +553,43 @@ Raw files: `runs/before/trial-N.jsonl` (the server's log, written by `log_classi
 ```
 
 All three trials of criteria 2 and 5 were identical. Each trial was a separate `serve.py` process with its own log and its own request ids. They're identical because both are decided by fixed inputs. Criteria 1 and 4, which depend on the machine, did vary.
+
+**The Improvement**
+
+What I changed: the empty-input check in `classify()` in `serve.py`. Before, a post counted as empty only if `text.strip()` was empty. Now, after tokenizing, the service also counts the tokens the model would actually read — the tokenized length minus the `[CLS]` and `[SEP]` it adds — and if that's zero it returns a 400 with the new error code `no_content`, before inference runs. That's the only behaviour change; `RUNNING.md` and the log-field notes in `serve.py` now list `no_content`.
+
+Why this change: it's aimed at the one miss in the before run. Criterion 2 failed on `nul_only_text` alone — 10 of 10 passes in all three trials returned a 200. `strip()` only removes whitespace, so `"\u0000\u0000"` passed the check, and the tokenizer then dropped both characters, so the model classified nothing but its own `[CLS]` and `[SEP]` (`n_tokens: 2`) and answered `release_showcase` at 0.4184. Checking emptiness by what the model reads instead of by what `strip()` sees closes that gap for any character the tokenizer discards, not just null bytes. A one-letter post (`"a"`) still classifies.
+
+Run Log — After. `python run_trials.py --label after`, the same three-trial procedure and the same 441 requests per trial as before.
+
+| Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
+|---|---|---|---|---|---|
+| 1. Fast responses once the server is running | ≥ 90% of valid requests under 100 ms | 300/300 | 300/300 | 299/300 | MET |
+| 2. Bad input gets a 400, never a 500 | 140/140 get a 400, zero 500 | 140/140 | 140/140 | 140/140 | MET |
+| 3. Every request is logged | 100% | 441/441 | 441/441 | 441/441 | MET |
+| 4. Memory stays under 750 MB | ≤ 750 MB peak | 667.2 MB | 666.3 MB | 666.5 MB | MET |
+| 5. Most posts fit in the 128-token limit | ≤ 40% of 30 posts truncated | 10/30 | 10/30 | 10/30 | MET |
+
+Before and after, side by side:
+
+| Criterion | Before (runs 1 / 2 / 3) | Verdict | After (runs 1 / 2 / 3) | Verdict |
+|---|---|---|---|---|
+| 1 | 300 / 300 / 300 of 300 | MET | 300 / 300 / 299 of 300 | MET |
+| 2 | 130 / 130 / 130 of 140 | MISSED | 140 / 140 / 140 of 140 | MET |
+| 3 | 441 / 441 / 441 of 441 | MET | 441 / 441 / 441 of 441 | MET |
+| 4 | 667.1 / 666.5 / 666.8 MB | MET | 667.2 / 666.3 / 666.5 MB | MET |
+| 5 | 10 / 10 / 10 of 30 | MET | 10 / 10 / 10 of 30 | MET |
+
+The same `nul_only_text` request after the fix, from `log_classify` in `serve.py` (`runs/after/trial-1.jsonl`) — a 400 `no_content`, with no `inference_ms` because the model never ran:
+
+```jsonl
+{"ts": "2026-11-19T00:50:41.841+00:00", "event": "request", "model": "v1assets/takemeter-distilbert", "request_id": "ce1975fa", "status": 400, "error": "no_content", "exception": null, "input_preview": "\u0000\u0000", "input_chars": 2, "n_tokens": 2, "truncated": null, "label": null, "confidence": null, "scores": null, "tokenize_ms": 0.16, "inference_ms": null, "total_ms": 0.97, "cpu_ms": 15.6, "rss_mb": 666.2, "peak_rss_mb": 666.2}
+```
+
+Did it help: yes, for what it was aimed at. Criterion 2 went from MISSED (130/140 in every trial) to MET (140/140 in every trial), and nothing else changed verdict. Accuracy on the 30 test posts is still 0.7667 in every trial, so the check didn't reject any real post.
+
+One thing moved the wrong way, and it isn't the fix. Run 3 of criterion 1 had its first request over 100 ms (`runs/after/trial-3.jsonl`, request `e63ad1bc`): a 128-token post whose forward pass took 119.8 ms, when the same post took about 50 ms on the other nine passes of that trial. The new check runs after tokenizing and before inference and costs under a millisecond (`tokenize_ms` 1.13 here), so it can't account for 70 ms. Criterion 1 is still met at 299/300, but the before run already peaked at 96 ms, so the 100 ms margin on full-length posts is thin:
+
+```jsonl
+{"ts": "2026-11-19T00:51:44.846+00:00", "event": "request", "model": "v1assets/takemeter-distilbert", "request_id": "e63ad1bc", "status": 200, "error": null, "exception": null, "input_preview": "Need help with crashing\r\n\r\nThis might be a long shot but I've tried literally everything I can think of to fix this for ", "input_chars": 799, "n_tokens": 128, "truncated": true, "label": "troubleshooting", "confidence": 0.4166, "scores": {"troubleshooting": 0.4166, "recommendation_request": 0.3294, "release_showcase": 0.254}, "tokenize_ms": 1.13, "inference_ms": 119.82, "total_ms": 122.3, "cpu_ms": 562.5, "rss_mb": 665.8, "peak_rss_mb": 666.5}
+```

@@ -1,0 +1,448 @@
+INFO:     Started server process [14932]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+Loaded v1assets/takemeter-distilbert in 0.79s — labels: troubleshooting, recommendation_request, release_showcase
+Logging to runs\after\trial-1.jsonl
+INFO:     127.0.0.1:6844 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6845 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6846 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6847 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6848 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6849 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6850 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6851 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6852 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6853 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6854 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6855 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6856 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6857 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6858 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6859 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6860 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6861 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6862 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6863 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6864 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6865 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6866 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6867 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6868 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6869 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6870 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6871 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6872 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6873 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6874 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6875 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6876 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6877 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6878 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6879 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6880 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6881 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6882 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6883 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6884 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6885 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6886 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6887 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6888 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6889 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6890 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6891 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6892 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6893 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6894 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6895 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6896 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6897 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6898 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6899 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6900 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6901 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6902 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6903 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6904 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6905 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6906 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6907 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6908 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6909 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6910 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6911 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6912 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6913 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6914 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6915 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6916 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6917 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6918 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6919 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6920 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6921 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6922 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6923 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6924 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6925 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6926 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6927 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6928 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6929 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6930 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6931 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6932 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6933 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6934 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6935 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6936 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6937 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6938 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6939 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6940 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6941 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6942 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6943 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6944 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6945 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6946 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6947 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6948 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6949 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6950 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6951 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6952 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6953 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6954 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6955 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6956 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6957 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6958 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6959 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6960 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6961 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6962 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6963 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6964 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6965 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6966 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6967 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6968 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6969 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6970 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6971 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6972 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6973 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6974 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6975 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6976 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6977 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:6978 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6979 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6980 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6981 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6982 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6983 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6984 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6985 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6986 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6987 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6988 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6989 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6990 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6991 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6992 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6993 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6994 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6995 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6996 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6997 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6998 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6999 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7000 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7001 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7002 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7003 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7004 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7005 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7006 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7007 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7008 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7009 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7010 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7011 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7012 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7013 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7014 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7015 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7016 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7017 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7018 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7019 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7020 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7021 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7022 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7023 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7024 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7025 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7026 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7027 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7028 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7029 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7030 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7031 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7032 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7033 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7034 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7035 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7036 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7037 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7038 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7039 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7040 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7041 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7042 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7043 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7044 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7045 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7046 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7047 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7048 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7049 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7050 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7051 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7052 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7053 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7054 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7055 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7056 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7057 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7058 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7059 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7060 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7061 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7062 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7063 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7064 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7065 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7066 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7067 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7068 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7069 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7070 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7071 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7072 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7073 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7074 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7075 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7076 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7077 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7078 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7079 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7080 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7081 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7082 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7083 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7084 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7085 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7086 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7087 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7088 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7089 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7090 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7091 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7092 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7093 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7094 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7095 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7096 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7097 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7098 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7099 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7100 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7101 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7102 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7103 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7104 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7105 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7106 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7107 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7108 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7109 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7110 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7111 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7112 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7113 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7114 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7115 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7116 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7117 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7118 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7119 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7120 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7121 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7122 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7123 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7124 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7125 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7126 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7127 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7128 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7129 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7130 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7131 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7132 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7133 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7134 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7135 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7136 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7137 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7138 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7139 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7140 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7141 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7142 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7143 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7144 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7145 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7146 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7147 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7148 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7149 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7150 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7151 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7152 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7153 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7154 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7155 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7156 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7157 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7158 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7159 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7160 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7161 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7162 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7163 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7164 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7165 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7166 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7167 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7168 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7169 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7170 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7171 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7172 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7173 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7174 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7175 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7176 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7177 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7178 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7179 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7180 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7181 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7182 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7183 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7184 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7185 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7186 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7187 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7188 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7189 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7190 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7191 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7192 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7193 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7194 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7195 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7196 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7197 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7198 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7199 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7200 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7201 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7202 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7203 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7204 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7205 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7206 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7207 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7208 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7209 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7210 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7211 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7212 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7213 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7214 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7215 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7216 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7218 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7219 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7220 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7221 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7222 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7223 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7224 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7225 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7226 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7227 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7228 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7229 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7230 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7231 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7232 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7233 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7234 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7235 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7236 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7237 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7238 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7239 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7240 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7241 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7242 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7243 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7244 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7245 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7246 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7247 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7248 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7249 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7250 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7251 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7252 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7253 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7254 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7255 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7256 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7257 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7258 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7259 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7260 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7261 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7262 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7263 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7264 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7265 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7266 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7267 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7268 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7269 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7270 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7271 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7272 - "POST /classify HTTP/1.1" 200 OK
+INFO:     127.0.0.1:7273 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7274 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7275 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7276 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7277 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7278 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7279 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7280 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7281 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7282 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7283 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7284 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7285 - "POST /classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:7286 - "POST /classify HTTP/1.1" 400 Bad Request

@@ -37,7 +37,7 @@ needed.
 curl -X POST http://127.0.0.1:8000/classify -H "Content-Type: application/json" -d '{"text": "Game crashes on startup after installing the new texture pack, any fix?"}'
 ```
 
-Bad input gets a `400` with `{"error": "<code>", "detail": "..."}`: `empty_text`,
+Bad input gets a `400` with `{"error": "<code>", "detail": "..."}`: `empty_text`, `no_content` (only characters the tokenizer drops, such as null bytes),
 `text_too_long` (over 10,000 characters), `invalid_request` (no string `text`
 field) or `invalid_json`. An exception during inference gets a JSON `500`
 (`inference_error`) and the service keeps running.
